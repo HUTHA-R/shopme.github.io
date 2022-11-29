@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>buy me!</title>
+    <link rel="stylesheet" type="text/css" href="file.css">
+    <link rel="stylesheet" href="styling.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/1dbc5128ba.js" crossorigin="anonymous"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+  </head>
+  <body>
+      <div class="container">
+        <div class="groceries">
+        <h1>Grocery items</h1>
+   <i class="fa-solid fa-eraser fa-2xl" id="eraser"></i>
+        <input type="text" class="placeHolder" id="inputText">
+   <div id="allItems"></div>
+      </div>    
+  
+        <script type="text/javascript">
+           const groceries = document.getElementsByClassName("groceries")[0];
+           const eraser = document.getElementById("eraser");
+           const inputText = document.getElementById("inputText");
+           const allItems = document.getElementById("allItems");
+           eraser.addEventListener("click",function () {
+              allItems.innerHTML="";
+           })
+
+          inputText.addEventListener("keydown",function(event){
+            if (event.key =="Enter")
+              addItem();
+          })
+          function addItem(){
+            var h2 = document.createElement("h2");
+            h2.innerHTML="-"+ inputText.value;
+            h2.addEventListener("click",function(){
+              h2.style.textDecoration = "line-through";
+            } )
+              allItems.insertAdjacentElement("beforeend",h2);
+              inputText.value = "";
+          }
+    </script>
+   
+  </body> 
+     </html>  
